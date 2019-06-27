@@ -7,6 +7,7 @@
 //
 
 #include <array>
+#include <resources.cpp>
 
 using tiny = char;
 
