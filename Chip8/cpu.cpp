@@ -7,14 +7,17 @@
 //
 
 #include <array>
-#include <resources.cpp>
+#include "resources.cpp"
 
-using tiny = char;
+using tiny = unsigned char;
 
 class Cpu
     {
     public:
-        Cpu(): registerI ( 200 ), stackCounter ( 0 ), memoryOffsetCounter ( 200 ), delayTimer ( 0 ), soundTimer ( 0 ){}
+        Cpu(): registerI ( 0x200 ), stackCounter ( 0 ), memoryOffsetCounter ( 0x200 ), delayTimer ( 0 ), soundTimer ( 0 )
+            {
+            init();
+            }
         
     private:
         std::array <tiny, 4096> ram{};
@@ -27,6 +30,12 @@ class Cpu
         
         int delayTimer{};
         int soundTimer{};
+        
+        
+        init()
+            {
+            
+            }
         
         
     
