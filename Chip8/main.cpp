@@ -7,6 +7,11 @@
 //
 
 #include <iostream>
+#include <stdlib.h>
+#include <stdio.h>
+
+
+#include "display.cpp"
 
 int main() 
     {

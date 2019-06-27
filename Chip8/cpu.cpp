@@ -6,4 +6,12 @@
 //  Copyright © 2019 Эльдар Дамиров. All rights reserved.
 //
 
-
+class Cpu
+    {
+    public:
+    
+        
+    private:
+        
+    
+    };
