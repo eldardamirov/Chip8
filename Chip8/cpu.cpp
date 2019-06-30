@@ -36,7 +36,51 @@ class Cpu
         
         void init()
             {
-            std::copy ( std::begin ( fontset ), ( std::begin( fontset ) + elementsQuantity(fontset) ), ram.begin() );
+            std::copy ( std::begin ( fontset ), ( std::begin ( fontset ) + elementsQuantity ( fontset ) ), ram.begin() );
+            }
+            
+        void interpret ( int instruction )
+            {
+            switch ( instruction )
+                {
+                case:
+                    {
+                    
+                    }
+                case:
+                    {
+                    
+                    }
+                case:
+                    {
+                    
+                    }
+                case:
+                    {
+                    
+                    }
+                case:
+                    {
+                    
+                    }
+                case:
+                    {
+                    
+                    }
+                case:
+                    {
+                    
+                    }
+                case:
+                    {
+                    
+                    }
+                case:
+                    {
+                    
+                    }
+                    
+                }
             
             
             }
