@@ -39,7 +39,7 @@ class Display
             {
             for ( size_t currentY { 0 }; currentY < sizeY; currentY++ )
                 {
-                std::transform( displayBuffer [ currentY ], ( displayBuffer [ currentY ] + sizeX ), displayBuffer [ currentY ], []( ... ) { return 0; } );
+                std::transform ( displayBuffer [ currentY ], ( displayBuffer [ currentY ] + sizeX ), displayBuffer [ currentY ], []( ... ) { return 0; } );
                 }
             }
             
@@ -58,7 +58,17 @@ class Display
             {
             for ( size_t currentY { 0 }; currentY < sizeY; currentY++ )
                 {
-                std::for_each ( displayBuffer [ currentY ], ( displayBuffer [ currentY ] + sizeX ), []( bool pixel ) { printf ( "%d", pixel ); } );
+                std::for_each ( displayBuffer [ currentY ], ( displayBuffer [ currentY ] + sizeX ), [ this ]( bool pixel ) 
+                    { 
+                    if ( pixel )
+                        {
+                        printf ( "%c", fillCharacter ); 
+                        }
+                    else
+                        {
+                        printf ( "0" );
+                        }
+                    } );
                 printf ( "\n" );
                 }
             }

@@ -11,6 +11,8 @@
 
 using tiny = unsigned char;
 
+#define elementsQuantity(x) (sizeof(x) / sizeof(x[0]))
+
 class Cpu
     {
     public:
@@ -32,8 +34,10 @@ class Cpu
         int soundTimer{};
         
         
-        init()
+        void init()
             {
+            std::copy ( std::begin ( fontset ), ( std::begin( fontset ) + elementsQuantity(fontset) ), ram.begin() );
+            
             
             }
         
