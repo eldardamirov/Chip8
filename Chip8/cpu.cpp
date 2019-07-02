@@ -7,7 +7,9 @@
 //
 
 #include <array>
+
 #include "resources.cpp"
+#include "display.cpp"
 
 using tiny = unsigned char;
 
@@ -16,7 +18,7 @@ using tiny = unsigned char;
 class Cpu
     {
     public:
-        Cpu(): registerI ( 0x200 ), stackCounter ( 0 ), memoryOffsetCounter ( 0x200 ), delayTimer ( 0 ), soundTimer ( 0 )
+        Cpu(): programCounter ( 0x200 ), stackPointer ( 0 ), memoryOffsetCounter ( 0x200 ), delayTimer ( 0 ), soundTimer ( 0 )
             {
             init();
             }
@@ -26,13 +28,15 @@ class Cpu
         std::array <int, 16> stack{}; 
         std::array <tiny, 16> registers{};
         
-        int registerI{};
-        tiny stackCounter{};
+        
+        int programCounter{};
+        tiny stackPointer{};
         tiny memoryOffsetCounter{};
         
         int delayTimer{};
         int soundTimer{};
         
+        Display display;
         
         void init()
             {
@@ -43,39 +47,46 @@ class Cpu
             {
             switch ( instruction )
                 {
-                case:
+                case 0x00E0:
                     {
-                    
+                    display.clear();
                     }
-                case:
-                    {
+//                case 0x00EE:
+//                    {
+//                    programCounter
+//                    stackPointer--;
+//                    }
+//                case:
+//                    {
+//                    
+//                    }
+//                case:
+//                    {
+//                    
+//                    }
+//                case:
+//                    {
+//                    
+//                    }
+//                case:
+//                    {
+//                    
+//                    }
+//                case:
+//                    {
+//                    
+//                    }
+//                case:
+//                    {
+//                    
+//                    }
+//                case:
+//                    {
+//                    
+//                    }
                     
-                    }
-                case:
-                    {
                     
-                    }
-                case:
-                    {
-                    
-                    }
-                case:
-                    {
-                    
-                    }
-                case:
-                    {
-                    
-                    }
-                case:
-                    {
-                    
-                    }
-                case:
-                    {
-                    
-                    }
-                case:
+                default:
                     {
                     
                     }
