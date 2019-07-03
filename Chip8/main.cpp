@@ -12,6 +12,9 @@
 
 
 #include "display.cpp"
+#include "keyboard.cpp"
+
+#include "cpu.cpp"
 
 
 
