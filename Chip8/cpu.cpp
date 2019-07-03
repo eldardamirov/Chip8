@@ -18,7 +18,8 @@ using tiny = unsigned char;
 class Cpu
     {
     public:
-        Cpu(): programCounter ( 0x200 ), stackPointer ( 0 ), memoryOffsetCounter ( 0x200 ), delayTimer ( 0 ), soundTimer ( 0 )
+        Cpu(): programCounter ( 0x200 ), stackPointer ( 0 ), memoryOffsetCounter ( 0x200 ), delayTimer ( 0 ), soundTimer ( 0 ), presavedTime ( time ( NULL ) ),
+               currentTime ( time ( NULL ) )
             {
             init();
             }
@@ -35,12 +36,25 @@ class Cpu
         
         int delayTimer{};
         int soundTimer{};
+        size_t presavedTime{}; 
+        size_t currentTime{}; // has to be updated each iteration;
         
         Display display;
         
         void init()
             {
             std::copy ( std::begin ( fontset ), ( std::begin ( fontset ) + elementsQuantity ( fontset ) ), ram.begin() );
+            }
+            
+        void timersController()
+            {
+            currentTime = time ( NULL );
+            
+            if ( ( currentTime - presavedTime ) >= 1 )
+                {
+                if ( delayTimer > 0 ) { delayTimer--; }
+                if ( soundTimer > 0 ) { soundTimer--; } 
+                }
             }
             
         void interpret ( int instruction )
